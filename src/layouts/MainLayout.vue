@@ -14,6 +14,9 @@
         <q-toolbar-title>
           MROO
         </q-toolbar-title>
+
+
+          <q-btn to="/" flat rounded dense icon="lock_open" label="Logout" />
       </q-toolbar>
     </q-header>
 
@@ -26,7 +29,7 @@
       <q-list>
 
 
-        <q-item clickable tag="a">
+        <q-item to="/dashboard/main" clickable tag="a">
           <q-item-section avatar>
             <q-icon name="dashboard" />
           </q-item-section>
@@ -35,26 +38,43 @@
           </q-item-section>
         </q-item>
 
-        <q-item clickable tag="a">
+        <q-item to="/dashboard/students" clickable tag="a">
           <q-item-section avatar>
-            <q-icon name="dashboard" />
+            <q-icon name="person" />
           </q-item-section>
           <q-item-section>
-            <q-item-label>Other link</q-item-label>
+            <q-item-label>Students</q-item-label>
           </q-item-section>
         </q-item>
 
-        <q-item-label
-          header
-          class="text-grey-8"
+        <q-item to="/dashboard/instructors" clickable tag="a">
+          <q-item-section avatar>
+            <q-icon name="school" />
+          </q-item-section>
+          <q-item-section>
+            <q-item-label>Instructors</q-item-label>
+          </q-item-section>
+        </q-item>
+
+        <q-separator spaced />
+
+        <q-expansion-item
+          label="Dev Links" dense
         >
-          Dev Links (remove before publishing)
-        </q-item-label>
-        <EssentialLink
-          v-for="link in essentialLinks"
-          :key="link.title"
-          v-bind="link"
-        />
+          <q-item-label
+            header
+            class="text-grey-8"
+          >
+            (remove before publishing)
+          </q-item-label>
+          <EssentialLink
+            v-for="link in essentialLinks"
+            :key="link.title"
+            v-bind="link"
+          />
+
+
+        </q-expansion-item>
       </q-list>
     </q-drawer>
 
@@ -81,7 +101,7 @@ export default {
         {
           title: 'Quasar Docs',
           caption: 'quasar.dev',
-          icon: 'school',
+          icon: 'description',
           link: 'https://quasar.dev/vue-components'
         },
         {

@@ -2,9 +2,19 @@
 const routes = [
   {
     path: '/',
+    component: () => import('layouts/NoMenuLayout.vue'),
+    children: [
+      { path: '', component: () => import('pages/SignIn.vue') },
+    ]
+  },
+
+  {
+    path: '/dashboard/',
     component: () => import('layouts/MainLayout.vue'),
     children: [
-      { path: '', component: () => import('pages/Index.vue') }
+      { path: 'main', component: () => import('pages/Dashboard.vue') },
+      { path: 'students', component: () => import('pages/StudentsOverview.vue') },
+      { path: 'instructors', component: () => import('pages/InstructorsOverview.vue') },
     ]
   }
 ]
