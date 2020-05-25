@@ -1,5 +1,5 @@
 <template>
-  <q-layout view="lHh Lpr lFf">
+  <q-layout view="hHh LpR fFf">
     <q-header elevated>
       <q-toolbar>
         <q-btn
@@ -12,10 +12,8 @@
         />
 
         <q-toolbar-title>
-          Quasar App
+          MROO
         </q-toolbar-title>
-
-        <div>Quasar v{{ $q.version }}</div>
       </q-toolbar>
     </q-header>
 
@@ -26,11 +24,31 @@
       content-class="bg-grey-1"
     >
       <q-list>
+
+
+        <q-item clickable tag="a">
+          <q-item-section avatar>
+            <q-icon name="dashboard" />
+          </q-item-section>
+          <q-item-section>
+            <q-item-label>Dashboard</q-item-label>
+          </q-item-section>
+        </q-item>
+
+        <q-item clickable tag="a">
+          <q-item-section avatar>
+            <q-icon name="dashboard" />
+          </q-item-section>
+          <q-item-section>
+            <q-item-label>Other link</q-item-label>
+          </q-item-section>
+        </q-item>
+
         <q-item-label
           header
           class="text-grey-8"
         >
-          Essential Links
+          Dev Links (remove before publishing)
         </q-item-label>
         <EssentialLink
           v-for="link in essentialLinks"
@@ -61,40 +79,22 @@ export default {
       leftDrawerOpen: false,
       essentialLinks: [
         {
-          title: 'Docs',
+          title: 'Quasar Docs',
           caption: 'quasar.dev',
           icon: 'school',
-          link: 'https://quasar.dev'
+          link: 'https://quasar.dev/vue-components'
         },
         {
-          title: 'Github',
-          caption: 'github.com/quasarframework',
-          icon: 'code',
-          link: 'https://github.com/quasarframework'
+          title: 'Quasar UI elements',
+          caption: 'quasar.dev',
+          icon: 'widgets',
+          link: 'https://quasar.dev/vue-components'
         },
         {
-          title: 'Discord Chat Channel',
-          caption: 'chat.quasar.dev',
-          icon: 'chat',
-          link: 'https://chat.quasar.dev'
-        },
-        {
-          title: 'Forum',
-          caption: 'forum.quasar.dev',
-          icon: 'record_voice_over',
-          link: 'https://forum.quasar.dev'
-        },
-        {
-          title: 'Twitter',
-          caption: '@quasarframework',
-          icon: 'rss_feed',
-          link: 'https://twitter.quasar.dev'
-        },
-        {
-          title: 'Facebook',
-          caption: '@QuasarFramework',
-          icon: 'public',
-          link: 'https://facebook.quasar.dev'
+          title: 'Material Icons',
+          caption: 'material.io',
+          icon: 'collections',
+          link: 'https://material.io/resources/icons/'
         },
         {
           title: 'Quasar Awesome',
