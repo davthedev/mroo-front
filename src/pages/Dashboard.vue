@@ -2,11 +2,15 @@
   <q-page class="q-pa-lg">
     <p class="text-h6">Instructors</p>
 
-    <PersonCard v-for="(instructor, idx) in instructors" :key="idx" :fullname="instructor.name" :jobtitle="instructor.title"/>
+    <div class="row items-start q-gutter-md">
+      <PersonCard v-for="(instructor, idx) in instructors" :key="idx" :fullname="instructor.name" :jobtitle="instructor.title"/>
+    </div>
 
     <p class="text-h6 q-mt-md">Students</p>
 
-    <PersonCard v-for="(student, idx) in students" :key="idx" :fullname="student.name" :jobtitle="student.title"/>
+    <div class="row items-start q-gutter-md">
+      <PersonCard v-for="(student, idx) in students" :key="idx" :fullname="student.name" :jobtitle="student.title"/>
+    </div>
 
 
   </q-page>
