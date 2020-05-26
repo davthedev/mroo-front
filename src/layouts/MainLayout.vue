@@ -30,10 +30,10 @@
 
         <q-item to="/dashboard/main" clickable tag="a">
           <q-item-section avatar>
-            <q-icon name="dashboard" />
+            <q-icon name="group_work" />
           </q-item-section>
           <q-item-section>
-            <q-item-label>Dashboard</q-item-label>
+            <q-item-label>Classroom</q-item-label>
           </q-item-section>
         </q-item>
 
@@ -52,6 +52,15 @@
           </q-item-section>
           <q-item-section>
             <q-item-label>Instructors</q-item-label>
+          </q-item-section>
+        </q-item>
+
+        <q-item to="/dashboard/evaluations" clickable tag="a">
+          <q-item-section avatar>
+            <q-icon name="bar_chart" />
+          </q-item-section>
+          <q-item-section>
+            <q-item-label>Evaluations</q-item-label>
           </q-item-section>
         </q-item>
 
