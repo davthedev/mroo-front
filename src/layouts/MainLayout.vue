@@ -11,8 +11,8 @@
           @click="leftDrawerOpen = !leftDrawerOpen"
         />
 
+        <img src="statics/logo/mroologo.png" class="q-ml-md"/>
         <q-toolbar-title>
-          MROO
         </q-toolbar-title>
 
 

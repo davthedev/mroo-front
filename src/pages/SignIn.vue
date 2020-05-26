@@ -4,8 +4,7 @@
       <div class="row">
         <q-card square class="q-pa-lg">
           <q-card-section>
-
-            <p class="text-h5 text-white q-my-none">MROO</p>
+            <img src="statics/logo/mroologo.png"/>
           </q-card-section>
           <q-card-section>
             <q-form class="q-gutter-md">
