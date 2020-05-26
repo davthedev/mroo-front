@@ -16,6 +16,7 @@ const routes = [
       { path: 'students', component: () => import('pages/StudentsOverview.vue') },
       { path: 'instructors', component: () => import('pages/InstructorsOverview.vue') },
       { path: 'evaluations', component: () => import('pages/Evaluations.vue') },
+      { path: 'instructorsettings', component: () => import('pages/InstructorSettings.vue') },
     ]
   }
 ]

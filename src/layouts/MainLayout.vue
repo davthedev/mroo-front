@@ -25,6 +25,45 @@
       show-if-above
       content-class="bg-dark"
     >
+
+      <p class="text-h6 q-pa-md q-mb-none">University Name</p>
+
+      <q-linear-progress :value="0.3" color="white" class="q-mx-md q-mb-lg" style="width: 90%"/>
+
+
+      <q-list class="q-mb-lg">
+
+        <q-item dense>
+          <q-item-section side>
+            <q-badge class="stat-badge" color="primary" text-color="white" label="11" />
+          </q-item-section>
+          <q-item-section>
+            <q-item-label>Students</q-item-label>
+          </q-item-section>
+        </q-item>
+        <q-item dense>
+          <q-item-section side>
+            <q-badge class="stat-badge" color="primary" text-color="white" label="3" />
+          </q-item-section>
+          <q-item-section>
+            <q-item-label>Instructors</q-item-label>
+          </q-item-section>
+        </q-item>
+        <q-item dense>
+          <q-item-section side>
+            <q-badge class="stat-badge" color="primary" text-color="white" label="5" />
+          </q-item-section>
+          <q-item-section>
+            <q-item-label>Evaluations</q-item-label>
+          </q-item-section>
+        </q-item>
+
+
+      </q-list>
+
+
+      <q-separator spaced/>
+
       <q-list>
 
 
@@ -64,7 +103,17 @@
           </q-item-section>
         </q-item>
 
-        <q-separator spaced />
+
+        <q-item to="/dashboard/instructorsettings" clickable tag="a">
+          <q-item-section avatar>
+            <q-icon name="settings" />
+          </q-item-section>
+          <q-item-section>
+            <q-item-label>Settings</q-item-label>
+          </q-item-section>
+        </q-item>
+
+        <q-separator spaced/>
 
         <q-expansion-item
           label="Dev Links" dense
@@ -135,3 +184,17 @@ export default {
   }
 }
 </script>
+
+<style lang="sass">
+
+.stat-badge
+  padding: 4px
+  min-width: 30px
+  text-align: center
+  border-radius: 10px
+  display: inline
+
+.flex.stat-badge
+  display: inline
+
+</style>
