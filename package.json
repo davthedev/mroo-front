@@ -15,6 +15,7 @@
     "axios": "^0.18.1",
     "eosjs": "^20.0.3",
     "quasar": "^1.0.0",
+    "quasar-dotenv": "^1.0.5",
     "vue-i18n": "^8.0.0"
   },
   "devDependencies": {

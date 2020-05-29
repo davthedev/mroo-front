@@ -6,6 +6,8 @@
 // Configuration for your app
 // https://quasar.dev/quasar-cli/quasar-conf-js
 
+const env = require('quasar-dotenv').config()
+
 module.exports = function (/* ctx */) {
     return {
     // app boot file (/src/boot)
@@ -15,6 +17,7 @@ module.exports = function (/* ctx */) {
       
       'i18n',
       'axios',
+      'apiservice',
     ],
 
     // https://quasar.dev/quasar-cli/quasar-conf-js#Property%3A-css
@@ -72,6 +75,9 @@ module.exports = function (/* ctx */) {
 
     // Full list of options: https://quasar.dev/quasar-cli/quasar-conf-js#Property%3A-build
     build: {
+
+      env: env,
+
       vueRouterMode: 'hash', // available values: 'hash', 'history'
 
       // rtl: false, // https://quasar.dev/options/rtl-support

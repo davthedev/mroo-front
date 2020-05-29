@@ -1,22 +1,22 @@
-import { Api, JsonRpc } from 'eosjs';
-import { JsSignatureProvider } from 'eosjs/dist/eosjs-jssig'
+import {Api, JsonRpc} from 'eosjs';
+import {JsSignatureProvider} from 'eosjs/dist/eosjs-jssig'
 
 // Main action call to blockchain
 async function takeActionUniversity(action, dataValue) {
-    const privateKey = '5KGpcDeuZzik9mPriBMhEZJPW9cpNjTTVQgdL2hVnpQKFd3u4tn';
-    const rpc = new JsonRpc(process.env.FRONT_APP_EOS_HTTP_ENDPOINT);
+    const privateKey = process.env.REACT_APP_EOS_PRIVATE_KEY_UNIVERSITY;
+    const rpc = new JsonRpc(process.env.REACT_APP_EOS_HTTP_ENDPOINT);
     const signatureProvider = new JsSignatureProvider([privateKey]);
-    const api = new Api({ rpc, signatureProvider, textDecoder: new TextDecoder(), textEncoder: new TextEncoder() });
+    const api = new Api({rpc, signatureProvider, textDecoder: new TextDecoder(), textEncoder: new TextEncoder()});
 
     // Main call to blockchain after setting action, account_name and data
     try {
         const resultWithConfig = await api.transact({
             actions: [{
-                account: process.env.FRONT_APP_EOS_CONTRACT_NAME_UNIVERSITY,
+                account: process.env.REACT_APP_EOS_CONTRACT_NAME_UNIVERSITY,
                 name: action,
                 authorization: [{
-                    actor: process.env.FRONT_APP_EOS_CONTRACT_NAME_UNIVERSITY,
-                    permission: 'active',
+                    actor: process.env.REACT_APP_EOS_CONTRACT_NAME_UNIVERSITY,
+                    permission: 'owner',
                 }],
                 data: dataValue,
             }]
@@ -31,19 +31,19 @@ async function takeActionUniversity(action, dataValue) {
 }
 
 async function takeActionJob1(action, dataValue) {
-    const privateKey = '5JjXSLvtX4LmSUdAncQaqttSMwNXHjXAyefQ9oLeEsJRBNiTre4';
-    const rpc = new JsonRpc(process.env.FRONT_APP_EOS_HTTP_ENDPOINT);
+    const privateKey = '5JAgX9f7x1UGq1Mda4JmEsJQpy7cxYNbATJg5CWnpJhp5WawVdk';
+    const rpc = new JsonRpc(process.env.REACT_APP_EOS_HTTP_ENDPOINT);
     const signatureProvider = new JsSignatureProvider([privateKey]);
-    const api = new Api({ rpc, signatureProvider, textDecoder: new TextDecoder(), textEncoder: new TextEncoder() });
+    const api = new Api({rpc, signatureProvider, textDecoder: new TextDecoder(), textEncoder: new TextEncoder()});
 
     // Main call to blockchain after setting action, account_name and data
     try {
         const resultWithConfig = await api.transact({
             actions: [{
-                account: process.env.FRONT_APP_EOS_CONTRACT_NAME_JOB1,
+                account: process.env.REACT_APP_EOS_CONTRACT_NAME_JOB1,
                 name: action,
                 authorization: [{
-                    actor: process.env.FRONT_APP_EOS_CONTRACT_NAME_JOB1,
+                    actor: process.env.REACT_APP_EOS_CONTRACT_NAME_JOB1,
                     permission: 'active',
                 }],
                 data: dataValue,
@@ -61,11 +61,11 @@ async function takeActionJob1(action, dataValue) {
 class ApiService {
     static async getTableStudents() {
         try {
-            const rpc = new JsonRpc(process.env.FRONT_APP_EOS_HTTP_ENDPOINT);
+            const rpc = new JsonRpc(process.env.REACT_APP_EOS_HTTP_ENDPOINT);
             const result = await rpc.get_table_rows({
                 "json": true,
-                "code": process.env.FRONT_APP_EOS_CONTRACT_NAME_UNIVERSITY,    // contract who owns the table
-                "scope": process.env.FRONT_APP_EOS_CONTRACT_NAME_UNIVERSITY,    // scope of the table
+                "code": process.env.REACT_APP_EOS_CONTRACT_NAME_UNIVERSITY,    // contract who owns the table
+                "scope": process.env.REACT_APP_EOS_CONTRACT_NAME_UNIVERSITY,    // scope of the table
                 "table": "students",    // name of the table as specified by the contract abi
                 "key_type": "i64",
                 "index_position": 2
@@ -73,52 +73,72 @@ class ApiService {
             return result;
         } catch (err) {
             console.error(err);
+            return undefined
         }
     }
 
     static async getTableProfessors() {
         try {
-            const rpc = new JsonRpc(process.env.FRONT_APP_EOS_HTTP_ENDPOINT);
+
+            console.log(process.env)
+            const rpc = new JsonRpc(process.env.REACT_APP_EOS_HTTP_ENDPOINT);
             const result = await rpc.get_table_rows({
                 "json": true,
-                "code": process.env.FRONT_APP_EOS_CONTRACT_NAME_UNIVERSITY,    // contract who owns the table
-                "scope": process.env.FRONT_APP_EOS_CONTRACT_NAME_UNIVERSITY,   // scope of the table
+                "code": process.env.REACT_APP_EOS_CONTRACT_NAME_UNIVERSITY,    // contract who owns the table
+                "scope": process.env.REACT_APP_EOS_CONTRACT_NAME_UNIVERSITY,   // scope of the table
                 "table": "professors",    // name of the table as specified by the contract abi
             });
             return result;
         } catch (err) {
             console.error(err);
+            return undefined
         }
     }
 
-    static async upsertStudent (dataValue){
-        try{
-            takeActionUniversity("upsertsdt", dataValue)
-        }catch (err){
-            console.log(err)
-        }
-    }
-
-    static async upsertProf (dataValue){
-        try{
-            takeActionUniversity("upsertpf", dataValue)
-        }catch (err){
-            console.log(err)
-        }
-    }
-
-    static async getJobDetails (){
+    static async upsertStudent(dataValue) {
         try {
-            const rpc = new JsonRpc(process.env.FRONT_APP_EOS_HTTP_ENDPOINT);
+            takeActionUniversity("upsertsdt", dataValue)
+        } catch (err) {
+            console.log(err)
+        }
+    }
+
+    static async upsertProf(dataValue) {
+        try {
+            takeActionUniversity("upsertpf", dataValue)
+        } catch (err) {
+            console.log(err)
+        }
+    }
+
+    static async getJobDetails() {
+        try {
+            const rpc = new JsonRpc(process.env.REACT_APP_EOS_HTTP_ENDPOINT);
             const result = await rpc.get_table_rows({
                 "json": true,
-                "code": process.env.FRONT_APP_EOS_CONTRACT_NAME_JOB1,    // contract who owns the table
-                "scope": process.env.FRONT_APP_EOS_CONTRACT_NAME_JOB1,   // scope of the table
+                "code": process.env.REACT_APP_EOS_CONTRACT_NAME_JOB1,    // contract who owns the table
+                "scope": process.env.REACT_APP_EOS_CONTRACT_NAME_JOB1,   // scope of the table
                 "table": "jobinfo",    // name of the table as specified by the contract abi
             });
             return result;
         } catch (err) {
             console.error(err);
+        }
+    }
+
+    static async setJobDetails(dataValue){
+        try {
+            takeActionJob1("setdetails", dataValue)
+        } catch (err) {
+            console.log(err)
+        }
+    }
+
+    static async closeUniversity() {
+        try {
+            takeActionUniversity("closeuni", {})
+        } catch (err) {
+            console.log(err)
         }
     }
 }
