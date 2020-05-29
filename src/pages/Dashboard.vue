@@ -12,12 +12,18 @@
       <PersonCard v-for="(student, idx) in students" :key="idx" :fullname="student.name" :jobtitle="student.title"/>
     </div>
 
+    <p class="text-h6 q-mt-md">Students in EOS jungle testnet</p>
+
+    <div class="row items-start q-gutter-md">
+      <PersonCard v-for="(student, idx) in studentsEos" :key="idx" :fullname="student.username" :jobtitle="student.grade"/>
+    </div>
 
   </q-page>
 </template>
 
 <script>
-import PersonCard from 'components/PersonCard'
+  import PersonCard from 'components/PersonCard'
+  import ApiService from '../services/ApiService'
 
 export default {
   name: 'PageDashboard',
@@ -26,9 +32,19 @@ export default {
     PersonCard
   },
 
+  mounted(){
+      ApiService.getTableStudents()
+              .then((res) => {
+                console.log(res);
+                this.studentsEos = res.rows;
+              })
+              .catch(err => {
+                console.log('err: ',err)
+              });
+  },
   data() {
     return {
-
+      studentsEos: null,
       instructors: [
         {
           name: 'John',
