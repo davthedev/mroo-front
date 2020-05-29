@@ -7,6 +7,12 @@ A Quasar Framework app
 yarn
 ```
 
+
+## Add the environment files
+
+You need to add a .env and a .env.example at the root of the project.
+Put the necessary variables in the .env; you can leave the .env.example empty.
+
 ### Start the app in development mode (hot-code reloading, error reporting, etc.)
 ```bash
 quasar dev
