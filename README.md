@@ -1,6 +1,7 @@
 # MROO (mroo-front)
 
-Frontend for the MROO project, designed for the block.one hackathon
+Frontend for the MROO project, designed for the block.one hackathon.
+
 Overview: https://devpost.com/software/mroo
 
 **This project communicates with smart contracts on the EOS blockchain.**
