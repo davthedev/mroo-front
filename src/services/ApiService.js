@@ -103,6 +103,24 @@ class ApiService {
         }
     }
 
+    // NOT FOR PROD
+    static async deleteStudent(dataValue) {
+        try {
+            await takeActionUniversity("removesdt", dataValue)
+        } catch (err) {
+            console.log(err)
+        }
+    }
+
+    // NOT FOR PROD
+    static async deleteInstructor(dataValue) {
+        try {
+            await takeActionUniversity("removepf", dataValue)
+        } catch (err) {
+            console.log(err)
+        }
+    }
+
     static async upsertProf(dataValue) {
         try {
             await takeActionUniversity("upsertpf", dataValue)

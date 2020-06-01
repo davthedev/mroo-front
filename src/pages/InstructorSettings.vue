@@ -31,9 +31,33 @@
       <template v-if="showDevFunctions">
         <h4>Dev operations</h4>
 
-        <p>These are intended for the development cycle, and are outside the scope of intended smart contract lifecycle</p>
+
+
+
+        <p class="text-negative">DEVELOPMENT USE ONLY</p>
+        <p>These are intended for development needs, and are outside the scope of intended smart contract lifecycle. Do not consider this part as representing the contract agreement. Likewise, relevant functions of the smart contract should be disabled for a production deployment.</p>
+
+
+        <p>Set grade</p>
 
         <div class="row q-gutter-md">
+          <q-input v-model="setGradeText" label="Student" dense/>
+          <q-input v-model.number="setGradeValue" type="number" label="Grade" dense/>
+        </div>
+
+        <div class="row q-gutter-md q-mt-sm q-mb-lg">
+          <q-btn color="accent" rounded unelevated label="Assign grade" @click="doSetGrade"/>
+        </div>
+
+        <q-separator />
+
+        <p class="q-mt-md">Remove persons from class</p>
+
+        <div class="row q-gutter-md">
+          <q-input v-model="removePersonText" label="Account" dense/>
+        </div>
+
+        <div class="row q-gutter-md q-mt-sm">
           <q-btn color="accent" rounded unelevated label="Remove student" @click="doRemoveStudent"/>
           <q-btn color="accent" rounded unelevated label="Remove instructor" @click="doRemoveInstructor"/>
         </div>
@@ -51,6 +75,10 @@ export default {
   data() {
     return {
       fetching: false,
+
+      removePersonText: '',
+      setGradeText: '',
+      setGradeValue: '',
 
       showDevFunctions: true,
     }
@@ -106,11 +134,76 @@ export default {
 
 
     doRemoveStudent: async function() {
+      let personAccount = this.removePersonText
 
+      this.fetching = true
+      try {
+        await this.$apiservice.deleteStudent({"user":personAccount});
+        this.fetching = false;
+        this.$q.notify({
+          type: 'positive',
+          position: 'top',
+          message: `Done`
+        })
+      }
+      catch (err) {
+        this.fetching = false;
+
+        this.$q.notify({
+          type: 'negative',
+          position: 'top',
+          message: `Error during operation`
+        })
+      }
     },
 
     doRemoveInstructor: async function() {
+      let personAccount = this.removePersonText
 
+      this.fetching = true
+      try {
+        await this.$apiservice.deleteInstructor({"user":personAccount});
+        this.fetching = false;
+        this.$q.notify({
+          type: 'positive',
+          position: 'top',
+          message: `Done`
+        })
+      }
+      catch (err) {
+        this.fetching = false;
+
+        this.$q.notify({
+          type: 'negative',
+          position: 'top',
+          message: `Error during operation`
+        })
+      }
+    },
+
+    doSetGrade: async function() {
+      let gradeStudent = this.setGradeText
+      let gradeValue = this.setGradeValue
+
+      this.fetching = true
+      try {
+        await this.$apiservice.upsertStudent({"user":gradeStudent, "grade":gradeValue});
+        this.fetching = false;
+        this.$q.notify({
+          type: 'positive',
+          position: 'top',
+          message: `Done`
+        })
+      }
+      catch (err) {
+        this.fetching = false;
+
+        this.$q.notify({
+          type: 'negative',
+          position: 'top',
+          message: `Error during operation`
+        })
+      }
     }
   }
 }
