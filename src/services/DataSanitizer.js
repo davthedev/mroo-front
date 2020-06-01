@@ -8,6 +8,10 @@ class DataSanitizer {
         return rawStudents.rows;
     }
 
+    static cleanJobs(rawJobs) {
+        return rawJobs.rows;
+    }
+
 }
 
 export default DataSanitizer;

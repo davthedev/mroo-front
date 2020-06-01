@@ -123,6 +123,7 @@ class ApiService {
             return result;
         } catch (err) {
             console.error(err);
+            return undefined;
         }
     }
 

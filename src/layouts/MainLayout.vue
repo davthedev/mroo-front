@@ -78,7 +78,7 @@
 
         <q-item to="/dashboard/students" clickable tag="a">
           <q-item-section avatar>
-            <q-icon name="person" />
+            <q-icon name="group" />
           </q-item-section>
           <q-item-section>
             <q-item-label>Students</q-item-label>
@@ -87,7 +87,7 @@
 
         <q-item to="/dashboard/instructors" clickable tag="a">
           <q-item-section avatar>
-            <q-icon name="school" />
+            <q-icon name="people_outline" />
           </q-item-section>
           <q-item-section>
             <q-item-label>Instructors</q-item-label>
@@ -100,6 +100,16 @@
           </q-item-section>
           <q-item-section>
             <q-item-label>Evaluations</q-item-label>
+          </q-item-section>
+        </q-item>
+
+
+        <q-item to="/dashboard/hiringdata" clickable tag="a">
+          <q-item-section avatar>
+            <q-icon name="work" />
+          </q-item-section>
+          <q-item-section>
+            <q-item-label>Hiring</q-item-label>
           </q-item-section>
         </q-item>
 

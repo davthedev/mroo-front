@@ -9,13 +9,36 @@
     </div>
 
     <template v-else>
-      <h4>Settings</h4>
+      <h4 class="q-mt-none">Main instructor operations</h4>
 
       <div class="row q-gutter-md">
-        <q-btn class="col" color="accent" rounded unelevated label="Operation 1"/>
-        <q-btn class="col" color="accent" rounded unelevated label="Operation 2"/>
-        <q-btn class="col" color="negative" rounded unelevated label="Terminate this curriculum" @click="confirmTerminate"/>
+
+        <q-card flat class="my-card">
+          <q-card-section>
+            <div class="text-h6">Terminate curriculum</div>
+            <p>This action formally establishes that the curriculum is over. All student rankings are taken into account to assign them to promised work contracts, according to the grades they obtained.</p>
+          </q-card-section>
+
+          <q-separator />
+
+          <q-btn color="negative" class="q-ma-md" rounded unelevated label="Terminate this curriculum" @click="confirmTerminate"/>
+        </q-card>
+
+
+
       </div>
+
+      <template v-if="showDevFunctions">
+        <h4>Dev operations</h4>
+
+        <p>These are intended for the development cycle, and are outside the scope of intended smart contract lifecycle</p>
+
+        <div class="row q-gutter-md">
+          <q-btn color="accent" rounded unelevated label="Remove student" @click="doRemoveStudent"/>
+          <q-btn color="accent" rounded unelevated label="Remove instructor" @click="doRemoveInstructor"/>
+        </div>
+
+      </template>
 
     </template>
   </q-page>
@@ -27,7 +50,9 @@ export default {
 
   data() {
     return {
-      fetching: false
+      fetching: false,
+
+      showDevFunctions: true,
     }
   },
 
@@ -77,6 +102,15 @@ export default {
           message: `Error while running this action`
         })
       }
+    },
+
+
+    doRemoveStudent: async function() {
+
+    },
+
+    doRemoveInstructor: async function() {
+
     }
   }
 }

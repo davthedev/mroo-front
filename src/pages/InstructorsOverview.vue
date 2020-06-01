@@ -45,7 +45,7 @@ export default {
           field: 'fullname',
           sortable: true
         },
-        { name: 'subject', label: 'Subject', field: 'subject', sortable: true },
+        { name: 'subject', label: 'Subject', field: 'subject', sortable: true, align: 'left' },
       ],
       initialPagination: {
         rowsPerPage: 10
