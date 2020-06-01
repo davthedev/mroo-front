@@ -1,12 +1,16 @@
 # MROO (mroo-front)
 
-A Quasar Framework app
+Frontend for the MROO project
+https://devpost.com/software/mroo
+
+Uses the Quasar framework on top of Vue.js
+
+Important note : this is a hackathon / prototype codebase. Some details like proper error management, centralized state store are not implemented yet. Inconsistencies in variable namings may be present as well. The goal was to get a prototype up and running quickly and efficiently. Kudos for creators of Quasar Framework that made it possible!
 
 ## Install the dependencies
 ```bash
 yarn
 ```
-
 
 ## Add the environment files
 

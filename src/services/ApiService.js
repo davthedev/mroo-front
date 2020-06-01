@@ -97,7 +97,7 @@ class ApiService {
 
     static async upsertStudent(dataValue) {
         try {
-            takeActionUniversity("upsertsdt", dataValue)
+            await takeActionUniversity("upsertsdt", dataValue)
         } catch (err) {
             console.log(err)
         }
@@ -105,7 +105,7 @@ class ApiService {
 
     static async upsertProf(dataValue) {
         try {
-            takeActionUniversity("upsertpf", dataValue)
+            await takeActionUniversity("upsertpf", dataValue)
         } catch (err) {
             console.log(err)
         }
