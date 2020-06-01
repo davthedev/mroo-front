@@ -123,25 +123,27 @@
           </q-item-section>
         </q-item>
 
-        <q-separator spaced/>
+        <template v-if="showDevLinks">
+          <q-separator spaced/>
 
-        <q-expansion-item
-          label="Dev Links" dense
-        >
-          <q-item-label
-            header
-            class="text-grey-8"
+          <q-expansion-item
+            label="Dev Links" dense
           >
-            (remove before publishing)
-          </q-item-label>
-          <EssentialLink
-            v-for="link in essentialLinks"
-            :key="link.title"
-            v-bind="link"
-          />
+            <q-item-label
+              header
+              class="text-grey-8"
+            >
+              (remove before publishing)
+            </q-item-label>
+            <EssentialLink
+              v-for="link in essentialLinks"
+              :key="link.title"
+              v-bind="link"
+            />
 
 
-        </q-expansion-item>
+          </q-expansion-item>
+        </template>
       </q-list>
     </q-drawer>
 
@@ -164,6 +166,7 @@ export default {
   data () {
     return {
       leftDrawerOpen: false,
+      showDevLinks: false,
       essentialLinks: [
         {
           title: 'Quasar Docs',
