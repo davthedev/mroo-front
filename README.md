@@ -41,6 +41,20 @@ REACT_APP_EOS_PRIVATE_KEY_JOB1="your_private_key_job"
 REACT_APP_EOS_HTTP_ENDPOINT="your_eos_endpoint"
 ```
 
+If you wish to experiment faster, using our already deployed contracts and test credentials, you can use this .env:
+
+```
+NODE_PATH=src
+#absolute path for require()
+#DO NOT CHANGE NOR REMOVE THE ABOVE
+
+REACT_APP_EOS_CONTRACT_NAME_UNIVERSITY="samjungled12"
+REACT_APP_EOS_CONTRACT_NAME_JOB1="igloojungled"
+REACT_APP_EOS_PRIVATE_KEY_UNIVERSITY="5JsBw1KEnB4UFkbveNWHf9sMUniuqPdGimeQcH7cjJoUFMP85Go"
+REACT_APP_EOS_PRIVATE_KEY_JOB1="5JWtmD2e7f5aV3GMo17Cg2CMHq9BG3pXE1F8qGskjwrCeUYG9Ln"
+REACT_APP_EOS_HTTP_ENDPOINT="http://jungle2.cryptolions.io:80"
+```
+
 ### Start the app in development mode (hot-code reloading, error reporting, etc.)
 ```bash
 quasar dev
