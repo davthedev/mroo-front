@@ -64,6 +64,12 @@
 
       <q-separator spaced/>
 
+      <q-item dense>
+          <q-item-section avatar>
+            <q-item-label class="text-accent">Main Instructor Menu</q-item-label>
+          </q-item-section>
+      </q-item>
+
       <q-list>
 
 

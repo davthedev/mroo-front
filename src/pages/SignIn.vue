@@ -5,11 +5,12 @@
         <q-card square class="q-pa-lg">
           <q-card-section>
             <img src="statics/logo/mroologo.png"/>
+            <p class="q-mt-md q-mb-none">Welcome! Please enter your credentials</p>
           </q-card-section>
           <q-card-section>
             <q-form class="q-gutter-md">
-              <q-input square filled clearable v-model="email" type="email" label="email" />
-              <q-input square filled clearable v-model="password" type="password" label="password" />
+              <q-input square filled clearable v-model="email" type="text" label="Account Name" />
+              <q-input square filled clearable v-model="password" type="password" label="Password" />
             </q-form>
           </q-card-section>
           <q-card-actions class="q-px-md">
