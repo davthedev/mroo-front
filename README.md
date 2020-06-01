@@ -1,7 +1,10 @@
 # MROO (mroo-front)
 
-Frontend for the MROO project
-https://devpost.com/software/mroo
+Frontend for the MROO project, designed for the block.one hackathon
+Overview: https://devpost.com/software/mroo
+
+**This project communicates with smart contracts on the EOS blockchain.**
+Corresponding blockchain code is available here: https://github.com/smauret/eos-mini-uni/tree/master/contracts
 
 Uses the Quasar framework on top of Vue.js
 
