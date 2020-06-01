@@ -17,12 +17,12 @@
         <q-btn color="accent" rounded unelevated icon="person_add" label="Enroll new student" @click="promptAddData"/>
       </div>
       <q-table
-        dense
+        dense flat
         title="Students"
         :data="data"
         :columns="columns"
         row-key="name"
-        :pagination="initialPagination"
+        :pagination.sync="initialPagination"
       />
 
 
