@@ -17,10 +17,12 @@
         <q-btn color="accent" rounded unelevated icon="person_add" label="Enroll new instructor" @click="promptAddData"/>
       </div>
       <q-table
+        dense
         title="Instructors"
         :data="data"
         :columns="columns"
         row-key="name"
+        :pagination="initialPagination"
       />
 
 
@@ -45,6 +47,9 @@ export default {
         },
         { name: 'subject', label: 'Subject', field: 'subject', sortable: true },
       ],
+      initialPagination: {
+        rowsPerPage: 10
+      },
       data: [
         {
           fullname: 'John',
