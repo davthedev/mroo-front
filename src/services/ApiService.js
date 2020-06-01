@@ -136,7 +136,7 @@ class ApiService {
 
     static async closeUniversity() {
         try {
-            takeActionUniversity("closeuni", {})
+            await takeActionUniversity("closeuni", {})
         } catch (err) {
             console.log(err)
         }

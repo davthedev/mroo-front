@@ -17,7 +17,7 @@
         <q-btn color="accent" rounded unelevated icon="person_add" label="Enroll new instructor" @click="promptAddData"/>
       </div>
       <q-table
-        title="Instructor"
+        title="Instructors"
         :data="data"
         :columns="columns"
         row-key="name"
